@@ -1,0 +1,47 @@
+.custome_one{
+    padding-top:8%;
+}
+.custome_two{
+    padding-top:8px;
+}
+.custome_three{
+    padding-left: 41%;
+    background: none;
+}
+.span_number{
+    float: right;
+    line-height: 20px;
+}
+.your-order-product-info ul{
+    line-height: 31px;
+}
+/* css code for responsive start here  */
+    /* Extra small devices (portrait phones, less than 576px) */
+    @media (max-width: 575.98px) {
+        .custome_one{
+            padding-top:22%;
+        }
+        .custome_three{
+            padding-left: 31%;
+        }
+    }
+    /* Small devices (landscape phones, 576px and up) */
+    @media (min-width: 576px) and (max-width: 767.98px) {
+        .custome_one{
+            padding-top:16%;
+        }
+        .custome_three{
+            padding-left: 30%;
+        }
+    }
+
+    /* Medium devices (tablets, 768px and up) */
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        .custome_one{
+            padding-top:14%;
+        }
+        .custome_three{
+            padding-left: 36%;
+        }
+
+    }

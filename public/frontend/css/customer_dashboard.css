@@ -1,0 +1,65 @@
+/* dashboard page css code start here */
+.full_area{
+    padding: 9% 0 0 0;
+}
+.header_area{
+    padding: 20px 0px;
+    background: #344a62d1;
+    color: #edede8;
+}
+.body_area{
+    background: #edecfb;
+}
+.dashboard_tab_button li .nav-link{
+    font-weight:600;
+    color:#fff;
+    background-color:#000;
+    font-size:16px;
+    text-transform:uppercase;
+    display:block;
+    margin-bottom: 15px;
+
+
+}
+.dashboard_tab_button li .nav-link:hover{
+    color: white;
+    background-color:#fb5d5d
+}
+.dashboard_tab_button li .nav-link.active{
+    background-color:#fb5d5d
+}
+/* dashboard page css code end here */
+
+/* review page css code start here */
+.review_full_area{
+    padding: 9% 0 1% 0;
+}
+/* review page css code end here */
+
+/* css code for responsive start here  */
+    /* Extra small devices (portrait phones, less than 576px) *
+    @media (max-width: 575.98px) {
+        .full_area{
+            padding: 17% 0 0 0;
+        }
+    }
+    /* Extra small devices (portrait phones, less than 576px) */
+    @media (max-width: 310.98px) {
+        .full_area{
+            padding: 31% 0 0 0;
+        }
+    }
+    /* Small devices (landscape phones, 576px and up) */
+    @media (min-width: 311px) and (max-width: 767.98px) {
+        .full_area{
+            padding: 27% 0 0 0;
+        }
+    }
+
+    /* Medium devices (tablets, 768px and up) */
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        .full_area{
+            padding: 15% 0 0 0;
+        }
+
+    }

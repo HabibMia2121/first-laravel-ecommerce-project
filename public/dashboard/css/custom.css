@@ -1,0 +1,34 @@
+/*==============================custom css for login page use start here =================================== */
+/* login_register_css code start here*/
+.login_register_css {
+    right: 31%;
+}
+.copyright_register_responsive{
+    bottom: -8%;
+}
+/* login_register_css code end here*/
+/* responsive css code start here */
+@media (max-width: 768px) {
+    .login_register_css {
+        right: -1%;
+    }
+    .copyright_responsive {
+        bottom: -12%;
+    }
+    .copyright_register_responsive {
+        bottom: -47%;
+    }
+}
+@media (min-width: 768px) and (max-width: 900px) {
+    .login_register_css {
+        right: 14%;
+    }
+    .copyright_responsive {
+        bottom: -13%;
+    }
+    .copyright_register_responsive {
+        bottom: -13%;
+    }
+}
+/* responsive css code end here */
+/*==============================custom css for login page use end here =================================== */
