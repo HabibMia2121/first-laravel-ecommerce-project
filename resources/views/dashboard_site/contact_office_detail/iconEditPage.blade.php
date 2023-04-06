@@ -9,12 +9,12 @@
 
 @section('main_content')
     <div class="container">
-        {{-- social icon create code here --}}
+        {{-- social icon edit code here --}}
         <div class="row mt-5">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header bg-secondary text-white">
-                        <h2>Social Icon Create</h2>
+                        <h2>Social Icon Edit</h2>
                     </div>
                     <div class="card-body">
                         @if(session('edit_message'))

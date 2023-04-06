@@ -13,7 +13,6 @@ class ContactController extends Controller
     public function customer_data_store(Request $request)
     {
         $request->validate([
-            '*'=> 'required|unique:contacts,email',
             'phone_number'=> 'required|digits:11',
         ]);
         Contact::insert([
@@ -23,7 +22,17 @@ class ContactController extends Controller
             'message'=>$request->message,
             'created_at'=>Carbon::now(),
         ]);
-
+        return back();
+    }
+    public function contact_from_data_show()
+    {
+        $contact_from_data=Contact::latest()->get();
+        return view('dashboard_site.contact_from.index',compact('contact_from_data'));
+    }
+    public function contact_from_delete(Contact $contact_id)
+    {
+        $contact_id->delete();
+        return back()->with('delete_message','Delete Complated!');
     }
     /*===============================contact-customer data store code end here============================= */
 

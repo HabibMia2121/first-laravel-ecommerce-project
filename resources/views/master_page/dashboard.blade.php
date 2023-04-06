@@ -198,6 +198,11 @@
                             <li>
                                 <a href="javascript: void(0);"><i class="fa fa-connectdevelop" aria-hidden="true"></i> Contact Page </span> <span class="menu-arrow"></span></a>
                                 <ul class="nav-second-level nav" aria-expanded="false">
+                                    <li><a href="javascript: void(0);" aria-expanded="false">Contact from data <span class="menu-arrow"></span></a>
+                                        <ul class="nav-third-level nav" aria-expanded="false">
+                                            <li><a href="{{route('contact.from_data_show')}}">Data list</a></li>
+                                        </ul>
+                                    </li>
                                     <li><a href="javascript: void(0);" aria-expanded="false">Banner <span class="menu-arrow"></span></a>
                                         <ul class="nav-third-level nav" aria-expanded="false">
                                             <li><a href="{{route('contact.banner_page')}}">Banner Update</a></li>
@@ -372,6 +377,7 @@
                                     </div>
 
                                     <!-- item-->
+
                                     <a href="{{route('admin.profile')}}" class="dropdown-item notify-item">
                                         <i class="fi-head"></i> <span>My Account</span>
                                     </a>

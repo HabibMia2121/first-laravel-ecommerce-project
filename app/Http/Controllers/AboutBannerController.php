@@ -14,7 +14,7 @@ class AboutBannerController extends Controller
         $this->middleware('auth');
         $this->middleware('checkroll');
     }
-    
+
     /*===============================about_banner code start here========================================= */
     public function about_banner_page()
     {

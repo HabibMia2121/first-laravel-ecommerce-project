@@ -120,7 +120,7 @@ https://templatemo.com/tm-546-sixteen-clothing
             <div class="inner-content">
               <p>Copyright &copy; {{date('Y')}} {{env('APP_NAME')}}.
 
-            - Development by: Habib</p>
+            - Development by:Ahosan Habib</p>
 
             </div>
           </div>
@@ -167,7 +167,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           }
       }
     </script>
-    
+
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
         var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

@@ -45,77 +45,38 @@ class HomeController extends Controller
     {
         return view('dashboard_site.admin_profile.index');
     }
-    public function admin_profile_update(Request $request)
+    public function admin_profile_update(Request $request ,User $admin_id)
     {
         $request->validate([
             'name'=>'required',
+            'profile_photo'=>'mimes:png,jpg,webp',
             'phone_number'=>'nullable',
-            'address'=>'required',
+            'address'=>'nullable',
         ],[
             'name.required'=>'Please enter the name then try!',
-            'address.required'=>'Please enter the address then try!',
         ]);
-        if($request->profile_photo == null){
-            if($request->hasFile('profile_photo')){
-                // old profile photo delete from file
-                if(auth()->user()->profile_photo !='default_profile_photo.jpg'){
-                    unlink(public_path('uploads-photos/profile-photo/').auth()->user()->profile_photo);
-                }
-                // photo upload code start here
-                    // step:1->new photo name create
-                    $new_name=Str::random(7).'.'.$request->file('profile_photo')->getClientOriginalExtension();
-                    // step:2->new photo upload
-                    $save_link=public_path('uploads-photos/profile-photo/').$new_name;
-                    Image::make($request->file('profile_photo'))->resize(300,300)->save($save_link);
-                // photo upload code endt here
 
-                User::find(auth()->id())->update([
-                    'profile_photo'=>$new_name,
-                ]);
+        if($request->hasFile('profile_photo')){
+            // old profile photo delete from file
+            if(auth()->user()->profile_photo !='default_profile_photo.jpg'){
+                unlink(public_path('uploads-photos/profile-photo/').auth()->user()->profile_photo);
             }
-             User::find(auth()->id())->update([
-                'name'=>$request->name,
-                'phone_number'=>$request->phone_number,
-                'address'=>$request->address,
-            ]);
-            return back()->with('success_message','Update Successfully!');
+            // photo upload code start here
+                // step:1->new photo name create
+                $new_name=Str::random(7).'.'.$request->file('profile_photo')->getClientOriginalExtension();
+                // step:2->new photo upload
+                $save_link=public_path('uploads-photos/profile-photo/').$new_name;
+                Image::make($request->file('profile_photo'))->resize(300,300)->save($save_link);
+            // photo upload code endt here
+            $admin_id->profile_photo=$new_name;
         }
-        else{
-            $status_admin_photo=true;
-            if(!in_array($request->profile_photo->getClientOriginalExtension(),['png','jpg','webp'])){
-                $status_admin_photo=false;
-            }
-            if($status_admin_photo){
-                if($request->hasFile('profile_photo')){
-                    // old profile photo delete from file
-                    if(auth()->user()->profile_photo !='default_profile_photo.jpg'){
-                        unlink(public_path('uploads-photos/profile-photo/').auth()->user()->profile_photo);
-                    }
-                    // photo upload code start here
-                        // step:1->new photo name create
-                        $new_name=Str::random(7).'.'.$request->file('profile_photo')->getClientOriginalExtension();
-                        // step:2->new photo upload
-                        $save_link=public_path('uploads-photos/profile-photo/').$new_name;
-                        Image::make($request->file('profile_photo'))->resize(300,300)->save($save_link);
-                    // photo upload code endt here
-
-                    User::find(auth()->id())->update([
-                        'profile_photo'=>$new_name,
-                    ]);
-                }
-            }
-            else{
-                return back()->with('file_format_error_admin_profile','there are one or many unsupported file in your attachment');
-            }
-            User::find(auth()->id())->update([
-                'name'=>$request->name,
-                'phone_number'=>$request->phone_number,
-                'address'=>$request->address,
-            ]);
-            return back()->with('success_message','Update Successfully!');
-        }
-
+        $admin_id->name=$request->name;
+        $admin_id->phone_number=$request->phone_number;
+        $admin_id->address=$request->address;
+        $admin_id->save();
+        return back()->with('success_message','Update Successfully!');
     }
+
     public function change_password(Request $request)
     {
         $request->validate([

@@ -27,7 +27,7 @@
                                 {{session('file_format_error_admin_profile')}}
                             </div>
                         @endif
-                        <form action="{{route('admin_profile.update')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('admin_profile.update',auth()->id())}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">

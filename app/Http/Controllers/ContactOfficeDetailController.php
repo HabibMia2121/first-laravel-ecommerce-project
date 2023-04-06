@@ -67,11 +67,10 @@ class ContactOfficeDetailController extends Controller
      }
      public function contact_office_icon_delete(Contact_social_icon $id)
      {
-
         $id->delete();
         return back()->with('icon_delete_message','Delete Complated!');
      }
-       //contact office social icon deleted data restore & forceDelete code start here
+       //social icon deleted data restore & forceDelete code start here
        public function restore_contact_office_social_icon($id)
        {
         Contact_social_icon::onlyTrashed()->where('id',$id)->restore();
@@ -82,7 +81,7 @@ class ContactOfficeDetailController extends Controller
         Contact_social_icon::onlyTrashed()->where('id',$id)->forceDelete();
            return back();
        }
-       //contact office social icon deleted data restore & forceDelete code end here
+       //social icon deleted data restore & forceDelete code end here
      //contact office social icon code end here
 
     /*===============================contact-office_detail code end here======================================*/

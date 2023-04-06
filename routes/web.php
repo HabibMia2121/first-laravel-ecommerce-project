@@ -69,7 +69,7 @@ Route::get('later/pay/{grand_total}/{order_summary_id}',[CustomerController::cla
 // home controller start here
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('admin/profile', [HomeController::class, 'admin_profile'])->name('admin.profile');
-Route::post('admin/profile/update', [HomeController::class, 'admin_profile_update'])->name('admin_profile.update');
+Route::post('admin/profile/update/{admin_id}', [HomeController::class, 'admin_profile_update'])->name('admin_profile.update');
 Route::post('change/password', [HomeController::class, 'change_password'])->name('change_password');
 Route::get('logo/favicon', [HomeController::class, 'logo_favicon'])->name('logo.favicon');
 Route::post('logo/update/{logo_id}', [HomeController::class, 'logo_update'])->name('logo.update');
@@ -194,6 +194,11 @@ Route::resource('about_client',AboutClientItemController::class);
 Route::get('restore/about/client/{id}', [AboutClientItemController::class, 'restore_about_client'])->name('restore_about_client');
 Route::get('about/client/forceDelete/{id}', [AboutClientItemController::class, 'about_client_forceDelete'])->name('about_client.forceDelete');
 // about-client item controller end here
+
+// contact from_data_show controller start here
+Route::get('contact/from/data/show',[ContactController::class,'contact_from_data_show'])->name('contact.from_data_show');
+Route::post('contact/from/delete/{contact_id}', [ContactController::class, 'contact_from_delete'])->name('contact_from.delete');
+// contact from_data_show controller end here
 
 // contact banner controller start here
 Route::get('contact/banner/page',[ContactBannerController::class,'contact_banner_page'])->name('contact.banner_page');
